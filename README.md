@@ -11,7 +11,8 @@ This repository is the official implementation of NativeRes-LLaVA.
 ## 🧾 ToDo Lists
 - [x] Release Inference Code
 - [x] Release Checkpoints
-- [ ] Release Training Code
+- [ ] Release Training Code (The code is being organized.)
+- [ ] Support SigLIP 2 with native resolution
 - [ ] Release NativeRes ViT
 
 
@@ -33,6 +34,7 @@ conda create -n nativeres python=3.10 -y
 conda activate nativeres
 pip install --upgrade pip  # enable PEP 660 support
 pip install -r requirements.txt
+pip install transformers==4.50.3 
 ```
 
 Install the required environment in `requirements.txt`. The Transforms version should be able to support at least `Qwen2-VL model`.
