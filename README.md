@@ -8,9 +8,9 @@
 ## 📌 ToDo Lists
 - [x] Release Inference Code
 - [x] Release Checkpoints
+- [x] Release NativeRes ViT (qwen2-vl-665m-patch14-nativeres)
 - [ ] Release Training Code (The code is being organized.)
 - [ ] Support SigLIP 2 with native resolution
-- [ ] Release NativeRes ViT
 - [ ] Support RL for post-train
 - [ ] Support Multimodal Reasoning like O3
 
