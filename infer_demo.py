@@ -96,7 +96,6 @@ def eval_model(args):
     
     conv_mode=args.conv_mode
     print(f"{GREEN}conv_mode: {conv_mode}\n{RESET}")
-
     conv = conv_templates[conv_mode].copy()
     conv.append_message(conv.roles[0], qs)
     conv.append_message(conv.roles[1], None)
@@ -136,7 +135,7 @@ def eval_model(args):
             grid_thw=grid_thw,
         )
     outputs = tokenizer.batch_decode(output_ids, skip_special_tokens=True)[0].strip()
-    # 打印带颜色的输出
+
     print(f"{GREEN}The output is :{RESET}")
     print(f"{BLUE}{outputs}{RESET}")
 
@@ -148,7 +147,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model-path", type=str, default="/data/niujunbo/model/ckpts/llava-next-Qwen2-7B-Instruct-qwenvit-4_4096_visual_token-ft-790k-8192_2")
     parser.add_argument("--model-base", type=str, default=None)
-    parser.add_argument("--image-file", type=str, default="/home/mineru/Document/niujunbo/github/NativeRes-LLaVA/demo/demo2.jpg")
+    parser.add_argument("--image-file", type=str, default="./demo/demo2.jpg")
     parser.add_argument("--query", type=str, default="Describe the image in detail." )
     parser.add_argument("--conv-mode", type=str, default="qwen_1_5")
     parser.add_argument("--sep", type=str, default=",")

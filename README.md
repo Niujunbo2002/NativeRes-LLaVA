@@ -14,7 +14,8 @@ This repository is the official implementation of NativeRes-LLaVA.
 - [ ] Release Training Code (The code is being organized.)
 - [ ] Support SigLIP 2 with native resolution
 - [ ] Release NativeRes ViT
-
+- [ ] Support RL for post-train
+- [ ] Support Multimodal Reasoning like O3
 
 ## 💡 Install
 
@@ -47,7 +48,7 @@ First download the checkpoints at the folder.
 For Inference, we have a simple example, just run:
 
 ```
-python llava/eval/model_vqa.py
+python ./infer_demo.py
 ```
 
 ## 🔥Train
