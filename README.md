@@ -7,8 +7,8 @@
 
 ## 📌 ToDo Lists
 - [x] Release Inference Code
-- [x] Release Checkpoints
-- [x] Release NativeRes ViT (qwen2-vl-665m-patch14-nativeres)
+- [x] Release NativeRes-LLaVA 1B && 2B && 7B Checkpoints
+- [x] Release NativeRes-ViT (qwen2-vl-665m-patch14-nativeres)
 - [ ] Release Training Code (The code is being organized.)
 - [ ] Support SigLIP 2 with native resolution
 - [ ] Support RL for post-train
@@ -16,7 +16,7 @@
 
 ## Install
 
-This is a repo enabling you train a LLaVA using images with any resolution.
+This is a repo enabling you train a LLaVA using images with native resolution.
 
 1. Clone this repository and navigate to LLaVA folder
 
