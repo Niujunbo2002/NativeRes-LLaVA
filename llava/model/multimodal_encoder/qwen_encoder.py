@@ -48,7 +48,7 @@ class Qwen2VisionTransformerPretrainedModelForLLaVA(nn.Module):
         checkpoint_path = os.path.join(model_path, "model-00001-of-00002.safetensors")
 
         
-        print(f"{GREEN}Loading QwenViT ...{RESET}")
+        # print(f"{GREEN}Loading QwenViT ...{RESET}")
         
         checkpoint = load_file(checkpoint_path)
         visual_weights = {
@@ -58,7 +58,7 @@ class Qwen2VisionTransformerPretrainedModelForLLaVA(nn.Module):
         }
         visual_model.load_state_dict(visual_weights, strict=True)
         
-        print(f"{GREEN}QwenViT loaded successfully!{RESET}")
+        # print(f"{GREEN}QwenViT loaded successfully!{RESET}")
         self.vision_tower=visual_model
         self.vision_tower.requires_grad_(False)
         self.is_loaded = True
@@ -79,7 +79,9 @@ class Qwen2VisionTransformerPretrainedModelForLLaVA(nn.Module):
         pixel_values:[all_seq_len,patch_size*patch_size*3*2]
         image_grid_thw:[num_img,3],每个长度为3的向量为[1,h,w],1表示时间,如果为video,则会大于1.h,w为图像的高和宽(以patch为单位)
         """
-        return self.vision_tower(pixel_values, grid_thw=grid_thw)#[all_seq_len//4,hidden_size(1536)]
+        image_features = self.vision_tower(pixel_values, grid_thw=grid_thw)#[all_seq_len//4,hidden_size(1536)]
+        print(f"{GREEN}Number of image tokens: {image_features.shape[0]}{RESET}")
+        return  image_features
     
     @property
     def dummy_feature(self):

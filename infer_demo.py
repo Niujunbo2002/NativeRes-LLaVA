@@ -70,7 +70,6 @@ def eval_model(args):
 
     model_name = get_model_name_from_path(args.model_path)
 
-    print(f"{GREEN}Loading model from {args.model_path} ...{RESET}")
     tokenizer, model, image_processor, context_len = load_pretrained_model(
         args.model_path,
         None, 
@@ -78,7 +77,6 @@ def eval_model(args):
         min_image_tokens=args.min_image_tokens,
         max_image_tokens=args.max_image_tokens,
     )
-    print(f"{GREEN}Model loaded successfully!\n{RESET}")
     
     qs = args.query
     qs=qs.replace("\\n", "\n")
@@ -147,14 +145,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model-path", type=str, default="/data/niujunbo/model/ckpts/llava-next-Qwen2-7B-Instruct-qwenvit-4_4096_visual_token-ft-790k-8192_2")
     parser.add_argument("--model-base", type=str, default=None)
-    parser.add_argument("--image-file", type=str, default="./demo/demo2.jpg")
+    parser.add_argument("--image-file", type=str, default="demo/paper2.jpg")
     parser.add_argument("--query", type=str, default="Describe the image in detail." )
     parser.add_argument("--conv-mode", type=str, default="qwen_1_5")
     parser.add_argument("--sep", type=str, default=",")
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--top_p", type=float, default=1.0)
     parser.add_argument("--num_beams", type=int, default=1)
-    parser.add_argument("--min_image_tokens", type=int, default=2)
+    parser.add_argument("--min_image_tokens", type=int, default=4)
     parser.add_argument("--max_image_tokens", type=int, default=4096)
     parser.add_argument("--max_new_tokens", type=int, default=512)
     args = parser.parse_args()

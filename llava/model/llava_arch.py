@@ -429,7 +429,7 @@ class LlavaMetaForCausalLM(ABC):
         # rank_print(f"Total images : {len(image_features)}")
         # import ipdb;ipdb.set_trace()
         num_image_token=sum([image.shape[0] for image in image_features])
-        print(f"num_image_token:{num_image_token}")
+        rank0_print(f"Total image tokens : {num_image_token}")
         # Let's just add dummy tensors if they do not exist,
         # it is a headache to deal with None all the time.
         # But it is not ideal, and if you have a better idea,
@@ -514,7 +514,7 @@ class LlavaMetaForCausalLM(ABC):
 
         # Combine them
         max_len = max(x.shape[0] for x in new_input_embeds)
-        print(f"******max_len:{max_len}**********")
+        rank0_print(f"Max length: {max_len}")
         if _input_ids.shape[0]==1 and max_len>tokenizer_model_max_length:
              print("!!!!!推理时token爆了!!!!!")
         batch_size = len(new_input_embeds)
@@ -581,7 +581,7 @@ class LlavaMetaForCausalLM(ABC):
             if tokenizer_model_max_length is not None and input_ids.shape[1]==1:#防止推理的时候图像token超了
                 assert image_features.shape[0]<tokenizer_model_max_length-48,"图像的tokens数量超过了tokenizer_model_max_length-48"
         num_image_token=image_features.shape[0]
-        print(f"****num_image_token:{num_image_token}****")
+        # rank0_print(f"**** num_image_token:{num_image_token} ****")
         # TODO: image start / end is not implemented here to support pretraining.
         if getattr(self.config, "tune_mm_mlp_adapter", False) and getattr(self.config, "mm_use_im_start_end", False):
             raise NotImplementedError
@@ -686,7 +686,7 @@ class LlavaMetaForCausalLM(ABC):
 
         # Combine them
         max_len = max(x.shape[0] for x in new_input_embeds)
-        print("****************","max_len:",max_len,"***********************")
+        # rank0_print("****************","Context_length:",max_len,"***********************")
         batch_size = len(new_input_embeds)
         assert cur_image_idx_qwen==cur_image_idx
         

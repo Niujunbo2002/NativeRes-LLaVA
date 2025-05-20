@@ -15,20 +15,28 @@ moderation_msg = "I am sorry. Your input may violate our content moderation guid
 handler = None
 
 import torch.distributed as dist
+# ANSI escape sequences for colored output
+RED = '\033[91m'
+GREEN = '\033[92m'
+BLUE = '\033[94m'
+RESET = '\033[0m'
+
 
 def rank0_print(*args):
     if dist.is_initialized():
         if dist.get_rank() == 0:
             print(f"Rank {dist.get_rank()}: ", *args)
     else:
-        print(*args)
+        # print(*args)
+
+        print(f"{GREEN}{' '.join(map(str, args))}\n{RESET}")
 
 
 def rank_print(*args):
     if dist.is_initialized():
         print(f"Rank {dist.get_rank()}: ", *args)
     else:
-        print(*args)
+        print(f"{GREEN}{' '.join(map(str, args))}\n{RESET}")
 
 def build_logger(logger_name, logger_filename):
     global handler

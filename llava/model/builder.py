@@ -291,7 +291,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                 tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
                 model = AutoModelForCausalLM.from_pretrained(model_path, low_cpu_mem_usage=True, **kwargs)
 
-    rank0_print(f"Model Class: {model.__class__.__name__}")
+    # rank0_print(f"Model Class: {model.__class__.__name__}")
     image_processor = None
 
     if "llava" in model_name.lower() or is_multimodal:
