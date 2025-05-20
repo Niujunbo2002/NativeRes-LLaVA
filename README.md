@@ -1,9 +1,9 @@
 # NativeRes-LLaVA
->[**Native Visual Understanding: Resolving Resolution Dilemmas in Vision-Language Models**]
+Official code repo for our work [**Native Visual Understanding: Resolving Resolution Dilemmas in Vision-Language Models**](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
 
 
 ## 📰 News
-- [2025/1/6] 🔥🔥🔥 We released the paper on [arXiv](http://arxiv.org/abs/2501.03218)!
+- [2025/1/6] 🔥🔥🔥 We released the paper on [arXiv](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
 
 ## 📌 ToDo Lists
 - [x] Release Inference Code
@@ -21,8 +21,8 @@ This is a repo enabling you train a LLaVA using images with native resolution.
 1. Clone this repository and navigate to LLaVA folder
 
 ```bash
-git clone https://github.com/Yuanhong-Zheng/NativeResLLaVA
-cd NativeResLLaVA
+git clone https://github.com/Niujunbo2002/NativeRes-LLaVA.git
+cd NativeRes-LLaVA
 ```
 
 2. Install Package
@@ -32,7 +32,7 @@ conda create -n nativeres python=3.10 -y
 conda activate nativeres
 pip install --upgrade pip  # enable PEP 660 support
 pip install -r requirements.txt
-pip install transformers==4.50.3 
+pip install transformers==4.50.3
 ```
 
 Install the required environment in `requirements.txt`. The Transforms version should be able to support at least `Qwen2-VL model`.
