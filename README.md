@@ -49,9 +49,9 @@ python ./infer_demo.py
 ```
 
 ## Train
+Please note that the following is merely our reference to the official LLaVA training strategy. You are free to choose any training strategy you believe to be correct and efficient based on our codebase.
 
-
-### Pretrain
+### Stage1: Pretrain
 
 If you want to run using siglip ViT, which not support NativeRes, you can run:
 
@@ -65,7 +65,7 @@ Otherwise you can run in NativeRes mode which utilize Qwen2-VL ViT to support an
 bash scripts/train/pretrain_qwenvit.sh
 ```
 
-### Finetune
+### Stage2: Finetune
 
 For finetuning using siglip, just run
 
@@ -88,7 +88,7 @@ bash scripts/train/direct_finetune_qwen_a4_v1.5_4_2048.sh
 
 
 ## Contact
-Junbo Niu: niujunbo25@gmail.com
+Junbo Niu: 21376334@buaa.edu.cn
 
 
 ## Acknowledgements
