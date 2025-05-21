@@ -1,5 +1,5 @@
 absl-py==2.1.0
-accelerate==1.6.0
+accelerate==0.26.0
 addict==2.4.0
 aiofiles==23.2.1
 aiohappyeyeballs==2.4.6
