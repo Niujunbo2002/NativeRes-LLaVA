@@ -46,8 +46,11 @@ pip install transformers==4.50.3
 Install the required environment in `requirements.txt`. The Transforms version should be able to support at least `Qwen2-VL model`.
 
 ## Quick Start
-First download the checkpoints at the folder. [**NativeRes-LLaVA**](https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1
-#)!
+
+First, download the checkpoints from the following folder: [**NativeRes-LLaVA**](https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1#)
+
+We have released **NativeRes-ViT** (*qwen2-vl-665m-patch14-nativeres*), a ViT model capable of handling native-resolution inputs.
+We have also released the model **NativeRes-LLaVA-qwen2-7b-qwen2vl**, which integrates NativeRes-ViT and uses **Qwen2-7b-Instruct** as the language model.
 
 ### Inference
 
