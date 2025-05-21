@@ -3,7 +3,6 @@ from transformers.models.qwen2_vl.modeling_qwen2_vl import (
     Qwen2VisionTransformerPretrainedModel,
 )
 from transformers.models.qwen2_vl.configuration_qwen2_vl import Qwen2VLConfig, Qwen2VLVisionConfig
-
 from transformers import AutoConfig, AutoProcessor
 from safetensors.torch import load_file
 from torch import nn
@@ -46,15 +45,18 @@ class Qwen2VisionTransformerPretrainedModelForLLaVA(nn.Module):
             config=config,
             use_flash_attention_2=True,
         ).half()
-        
+        self.reset_image_processor(self.min_token,self.max_token)
         self.vision_tower.requires_grad_(False)
         self.is_loaded = True
         
     def reset_image_processor(self, min_tokens, max_tokens):
-        min_pixels=min_tokens*28*28
-        max_pixels=max_tokens*28*28
-        self.image_processor = AutoProcessor.from_pretrained(self.model_path,min_pixels=min_pixels,max_pixels=max_pixels)
-        self.image_processor.resize_image_size=self.resize_image_size
+        min_pixels=min_tokens * 28 * 28
+        max_pixels=max_tokens * 28 * 28
+        self.image_processor = AutoProcessor.from_pretrained(self.model_path, 
+                                                            min_pixels = min_pixels,
+                                                            max_pixels = max_pixels
+                                                            )
+        self.image_processor.resize_image_size = self.resize_image_size
         # Simplified output format
         print(f"{GREEN}MIN_PIXELS: {min_tokens} * 28 * 28 \nMAX_PIXELS: {max_tokens} * 28 * 28{RESET}")
                 

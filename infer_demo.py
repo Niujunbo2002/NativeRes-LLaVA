@@ -146,7 +146,7 @@ if __name__ == "__main__":
     os.environ["CUDA_VISIBLE_DEVICES"] = "1" 
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model-path", type=str, default="/data/niujunbo/model/ckpts/llava-next-Qwen2-7B-Instruct-qwenvit-4_4096_visual_token-ft-790k-8192_2")
+    parser.add_argument("--model-path", type=str, default="/mnt/petrelfs/niujunbo/NativeRes/model/Niujunbo2002/NativeRes-LLaVA-qwen2-7b-qwen2vl")
     parser.add_argument("--model-base", type=str, default=None)
     parser.add_argument("--image-file", type=str, default="demo/paper2.jpg")
     parser.add_argument("--query", type=str, default="Describe the image in detail." )
