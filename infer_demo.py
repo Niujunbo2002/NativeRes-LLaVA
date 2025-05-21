@@ -77,27 +77,6 @@ def eval_model(args):
         min_image_tokens=args.min_image_tokens,
         max_image_tokens=args.max_image_tokens,
     )
-    
-    qs = args.query
-    qs=qs.replace("\\n", "\n")
-    image_token_se = DEFAULT_IM_START_TOKEN + DEFAULT_IMAGE_TOKEN + DEFAULT_IM_END_TOKEN
-    if IMAGE_PLACEHOLDER in qs:
-        if model.config.mm_use_im_start_end:
-            qs = re.sub(IMAGE_PLACEHOLDER, image_token_se, qs)
-        else:
-            qs = re.sub(IMAGE_PLACEHOLDER, DEFAULT_IMAGE_TOKEN, qs)
-    else:
-        if model.config.mm_use_im_start_end:
-            qs = image_token_se + "\n" + qs
-        else:
-            qs = DEFAULT_IMAGE_TOKEN + "\n" + qs # <image>\nWhat are the things I should be cautious about when I visit here?
-    
-    conv_mode=args.conv_mode
-    print(f"{GREEN}conv_mode: {conv_mode}\n{RESET}")
-    conv = conv_templates[conv_mode].copy()
-    conv.append_message(conv.roles[0], qs)
-    conv.append_message(conv.roles[1], None)
-    prompt = conv.get_prompt()
 
     image_files = image_parser(args)
     images = load_images(image_files,packing)
@@ -110,7 +89,31 @@ def eval_model(args):
     )
     images_tensor=images_tensor.to(model.device, dtype=torch.float16)
     grid_thw=grid_thw.to(model.device) if grid_thw is not None else None
-    
+
+    qs = args.query
+    qs=qs.replace("\\n", "\n")
+    image_token_se = DEFAULT_IM_START_TOKEN + DEFAULT_IMAGE_TOKEN + DEFAULT_IM_END_TOKEN
+    if IMAGE_PLACEHOLDER in qs:
+        if model.config.mm_use_im_start_end:
+            qs = re.sub(IMAGE_PLACEHOLDER, image_token_se, qs)
+        else:
+            qs = re.sub(IMAGE_PLACEHOLDER, DEFAULT_IMAGE_TOKEN, qs)
+    else:
+        if model.config.mm_use_im_start_end:
+            qs = image_token_se + "\n" + qs
+        else:
+            # qs = DEFAULT_IMAGE_TOKEN + "\n" + qs # <image>\nWhat are the things I should be cautious about when I visit here?
+            num_images = len(image_files)
+            qs = (DEFAULT_IMAGE_TOKEN + "\n") * num_images + qs
+
+    conv_mode=args.conv_mode
+    print(f"{GREEN}conv_mode: {conv_mode}\n{RESET}")
+    conv = conv_templates[conv_mode].copy()
+    conv.append_message(conv.roles[0], qs)
+    conv.append_message(conv.roles[1], None)
+    prompt = conv.get_prompt()
+
+
     input_ids = (
         tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt")
         .unsqueeze(0)

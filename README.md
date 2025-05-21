@@ -1,6 +1,14 @@
 # NativeRes-LLaVA
 Official code repo for our work [**Native Visual Understanding: Resolving Resolution Dilemmas in Vision-Language Models**](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
 
+<p align="center">
+  <a href="https://arxiv.org/abs/2501.05510" style="margin-right: 10px;"> 
+    <img src="https://img.shields.io/badge/arXiv-2501.05510-b31b1b.svg?logo=arXiv">
+  </a>
+  <a href="https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1" style="margin-right: 10px;"> 
+    <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Model-ffd21e">
+  </a>
+</p>
 
 ## 📰 News
 - [2025/1/6] 🔥🔥🔥 We released the paper on [arXiv](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
@@ -39,6 +47,7 @@ Install the required environment in `requirements.txt`. The Transforms version s
 
 ## Quick Start
 First download the checkpoints at the folder. 
+https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1
 
 ### Inference
 

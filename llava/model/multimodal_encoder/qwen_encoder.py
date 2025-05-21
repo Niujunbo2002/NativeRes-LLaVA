@@ -2,6 +2,8 @@ import os
 from transformers.models.qwen2_vl.modeling_qwen2_vl import (
     Qwen2VisionTransformerPretrainedModel,
 )
+from transformers.models.qwen2_vl.configuration_qwen2_vl import Qwen2VLConfig, Qwen2VLVisionConfig
+
 from transformers import AutoConfig, AutoProcessor
 from safetensors.torch import load_file
 from torch import nn
@@ -39,32 +41,14 @@ class Qwen2VisionTransformerPretrainedModelForLLaVA(nn.Module):
         self.load_model(self.model_path)
 
     def load_model(self,model_path):
-        config = AutoConfig.from_pretrained(model_path)
-        visual_model = Qwen2VisionTransformerPretrainedModel._from_config(
-            config=config.vision_config,
+        config = Qwen2VLVisionConfig.from_pretrained(model_path)
+        self.vision_tower = Qwen2VisionTransformerPretrainedModel._from_config(
+            config=config,
             use_flash_attention_2=True,
-        )
-
-        checkpoint_path = os.path.join(model_path, "model-00001-of-00002.safetensors")
-
+        ).half()
         
-        # print(f"{GREEN}Loading QwenViT ...{RESET}")
-        
-        checkpoint = load_file(checkpoint_path)
-        visual_weights = {
-            key.replace("visual.", ""): value
-            for key, value in checkpoint.items()
-            if key.startswith("visual.")
-        }
-        visual_model.load_state_dict(visual_weights, strict=True)
-        
-        # print(f"{GREEN}QwenViT loaded successfully!{RESET}")
-        self.vision_tower=visual_model
         self.vision_tower.requires_grad_(False)
         self.is_loaded = True
-        # self.image_processor = AutoProcessor.from_pretrained(model_path)
-        self.reset_image_processor(self.min_token,self.max_token)
-        # import ipdb;ipdb.set_trace()
         
     def reset_image_processor(self, min_tokens, max_tokens):
         min_pixels=min_tokens*28*28
