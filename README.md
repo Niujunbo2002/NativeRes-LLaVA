@@ -1,3 +1,7 @@
+<p align="center" width="80%">
+<img src="./assets/moonshot.jpg"  width="100%" height="80%">
+</p>
+
 # NativeRes-LLaVA
 Official code repo for our work [**Native Visual Understanding: Resolving Resolution Dilemmas in Vision-Language Models**](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
 
@@ -10,6 +14,8 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
   </a>
 </p>
 
+
+
 ## 📰 News
 - [2025/1/6] 🔥🔥🔥 We released the paper on [arXiv](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
 
@@ -18,6 +24,7 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 - [x] Release NativeRes-LLaVA 1B && 2B && 7B Checkpoints
 - [x] Release NativeRes-ViT (qwen2-vl-665m-patch14-native)
 - [ ] Release Training Code (The code is being organized.)
+- [ ] Release RC-Bench (The code is being organized.)
 - [ ] Support SigLIP 2 with native resolution
 - [ ] Support RL for post-train
 - [ ] Support Multimodal Reasoning like O3
@@ -39,6 +46,9 @@ cd NativeRes-LLaVA
 conda create -n nativeres python=3.10 -y
 conda activate nativeres
 pip install --upgrade pip  # enable PEP 660 support
+pip install torch==2.6.0
+pip install torchaudio==2.6.0
+pip install torchvision==0.21.0
 pip install -r requirements.txt
 pip install transformers==4.50.3
 ```

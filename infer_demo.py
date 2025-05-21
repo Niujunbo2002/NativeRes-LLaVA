@@ -1,5 +1,5 @@
 import sys
-sys.path.append("/home/mineru/Document/niujunbo/github/NativeRes-LLaVA")
+sys.path.append("/mnt/petrelfs/niujunbo/NativeRes-LLaVA")
 import argparse
 import torch
 import warnings
