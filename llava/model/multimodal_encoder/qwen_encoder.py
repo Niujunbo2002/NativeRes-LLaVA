@@ -45,7 +45,7 @@ class Qwen2VisionTransformerPretrainedModelForLLaVA(nn.Module):
             config=config,
             use_flash_attention_2=True,
         ).half()
-        self.reset_image_processor(self.min_token,self.max_token)
+
         self.vision_tower.requires_grad_(False)
         self.is_loaded = True
         

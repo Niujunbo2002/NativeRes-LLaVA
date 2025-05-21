@@ -27,7 +27,7 @@ from llava.utils import rank0_print
 def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, load_4bit=False, device_map="auto", torch_dtype="float16",device="cuda", attn_implementation="flash_attention_2", min_image_tokens=160,max_image_tokens=4096,customized_config=None, overwrite_config=None, **kwargs):
     packing=True#!!!!
     assert min_image_tokens is not None and max_image_tokens is not None,"min_image_tokens或者max_image_tokens不能为None!"
-    if not "qwenvit" in model_path:
+    if not "qwen2vl" in model_path:
     # if not False:#!!!
         packing=False
         kwargs["device_map"] = device_map
