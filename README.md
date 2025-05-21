@@ -46,8 +46,8 @@ pip install transformers==4.50.3
 Install the required environment in `requirements.txt`. The Transforms version should be able to support at least `Qwen2-VL model`.
 
 ## Quick Start
-First download the checkpoints at the folder. 
-https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1
+First download the checkpoints at the folder. [**NativeRes-LLaVA**](https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1
+#)!
 
 ### Inference
 
