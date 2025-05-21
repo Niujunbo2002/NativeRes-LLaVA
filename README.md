@@ -16,7 +16,7 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 ## 📌 ToDo Lists
 - [x] Release Inference Code
 - [x] Release NativeRes-LLaVA 1B && 2B && 7B Checkpoints
-- [x] Release NativeRes-ViT (qwen2-vl-665m-patch14-nativeres)
+- [x] Release NativeRes-ViT (qwen2-vl-665m-patch14-native)
 - [ ] Release Training Code (The code is being organized.)
 - [ ] Support SigLIP 2 with native resolution
 - [ ] Support RL for post-train
@@ -50,7 +50,8 @@ Install the required environment in `requirements.txt`. The Transforms version s
 First, download the checkpoints from the following folder: [**NativeRes-LLaVA**](https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1#)
 
 We have released **NativeRes-ViT** (*qwen2-vl-665m-patch14-nativeres*), a ViT model capable of handling native-resolution inputs.
-We have also released the model **NativeRes-LLaVA-qwen2-7b-qwen2vl**, which integrates NativeRes-ViT and uses **Qwen2-7b-Instruct** as the language model.
+
+We have also released the model **NativeRes-LLaVA-qwen2-7b-qwen2vl**, which integrates **NativeRes-ViT** and uses **Qwen2-7b-Instruct** as the language model. You are free to configure the `min_image_tokens` and `max_image_tokens` parameters (default: `min_image_tokens=4`, `max_image_tokens=4096`).
 
 ### Inference
 
