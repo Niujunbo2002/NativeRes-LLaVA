@@ -63,6 +63,28 @@ We have released **NativeRes-ViT** (*qwen2-vl-665m-patch14-nativeres*), a ViT mo
 
 We have also released the model **NativeRes-LLaVA-qwen2-7b-qwen2vl**, which integrates **NativeRes-ViT** and uses **Qwen2-7b-Instruct** as the language model. You are free to configure the `min_image_tokens` and `max_image_tokens` parameters (default: `min_image_tokens=4`, `max_image_tokens=4096`).
 
+You need to first download **NativeRes-ViT** (`Niujunbo2002/qwen2-vl-665m-patch14-nativeres`) to your local machine.
+Then, update the `"mm_vision_tower"` path in `Niujunbo2002/NativeRes-LLaVA-qwen2-7b-qwen2vl/config.json` to point to the **local path** of NativeRes-ViT.
+
+
+```
+{
+  "add_faster_video": false,
+  "add_time_instruction": false,
+  "architectures": [
+    "LlavaQwenForCausalLM"
+  ],
+  ...
+  "mm_vision_select_feature": "patch",
+  "mm_vision_select_layer": -1,
+  "mm_vision_tower": "/Local_Path/NativeRes/qwen2vl-665m-patch14-native",
+  "mm_vision_tower_lr": 2e-06,
+  ...
+}
+
+```
+
+
 ### Inference
 
 For Inference, we have a simple example, just run:
