@@ -3,7 +3,7 @@
 </p>
 
 # NativeRes-LLaVA
-Official code repo for our work [**Native Visual Understanding: Resolving Resolution Dilemmas in Vision-Language Models**](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
+Official code repo for our work [**Native Visual Understanding: Resolving Resolution Dilemmas in Vision-Language Models**](https://github.com/Niujunbo2002/NativeRes-LLaVA#)
 
 <p align="center">
   <a href="https://arxiv.org/abs/2501.05510" style="margin-right: 10px;"> 
@@ -17,7 +17,8 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 
 
 ## 📰 News
-- [2025/1/6] 🔥🔥🔥 We released the paper on [arXiv](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
+- [2025/5/22] 🔥🔥🔥 We released NativeRes-LLaVA 1B && 2B && 7B Checkpoints on [Hugging Face](https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1)
+- [2025/5/23] 🔥🔥🔥 We released the paper on [arXiv](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
 
 ## 📌 ToDo Lists
 - [x] Release Inference Code
@@ -25,7 +26,6 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 - [x] Release NativeRes-ViT (qwen2-vl-665m-patch14-native)
 - [ ] Release Training Code (The code is being organized.)
 - [ ] Release RC-Bench (The code is being organized.)
-- [ ] Support SigLIP 2 with native resolution
 - [ ] Support RL for post-train
 - [ ] Support Multimodal Reasoning like O3
 
@@ -137,7 +137,7 @@ Junbo Niu: 21376334@buaa.edu.cn
 
 
 ## Acknowledgements
-This codebase is built upon [LLaVA](https://github.com/haotian-liu/LLaVA) and leverages several open-source libraries. We extend our gratitude to the contributors and maintainers of these projects.
+This codebase is built upon [LLaVA](https://github.com/haotian-liu/LLaVA) and leverages  open-source model [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) . We extend our gratitude to the contributors and maintainers of these projects.
 
 
 ## Citation
