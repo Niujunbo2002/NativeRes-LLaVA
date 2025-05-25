@@ -5,16 +5,22 @@
 # NativeRes-LLaVA
 Official code repo for our work [**Native Visual Understanding: Resolving Resolution Dilemmas in Vision-Language Models**](https://github.com/Niujunbo2002/NativeRes-LLaVA#)
 
-<p align="center">
-  <a href="https://arxiv.org/abs/2501.05510" style="margin-right: 10px;"> 
-    <img src="https://img.shields.io/badge/arXiv-2501.05510-b31b1b.svg?logo=arXiv">
-  </a>
-  <a href="https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1" style="margin-right: 10px;"> 
-    <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Model-ffd21e">
-  </a>
-</p>
+<div align="center">
 
+  <a href="https://github.com/Niujunbo2002/NativeRes-LLaVA">
+    <img src="https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white">
+  </a>
+  <a href="https://github.com/Niujunbo2002/NativeRes-LLaVA">
+    <img src="https://img.shields.io/badge/Project%20Page-blue?style=for-the-badge&logo=starship&logoColor=white&labelColor=black">
+  </a>
+  <a href="https://github.com/Niujunbo2002/NativeRes-LLaVA">
+    <img src="https://img.shields.io/badge/Code-000000?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+  <a href="https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1#">
+    <img src="https://img.shields.io/badge/Collection-fcd022?style=for-the-badge&logo=huggingface&logoColor=fff">
+  </a>
 
+</div>
 
 ## 📰 News
 - [2025/5/22] 🔥🔥🔥 We released NativeRes-LLaVA 1B && 2B && 7B Checkpoints on [Hugging Face](https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1)
