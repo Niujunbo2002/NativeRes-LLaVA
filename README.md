@@ -10,7 +10,7 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
   <a href="https://github.com/Niujunbo2002/NativeRes-LLaVA">
     <img src="https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white">
   </a>
-  <a href="https://github.com/Niujunbo2002/NativeRes-LLaVA">
+  <a href="https://niujunbo2002.github.io/NativeRes-LLaVA/">
     <img src="https://img.shields.io/badge/Project%20Page-blue?style=for-the-badge&logo=starship&logoColor=white&labelColor=black">
   </a>
   <a href="https://github.com/Niujunbo2002/NativeRes-LLaVA">
