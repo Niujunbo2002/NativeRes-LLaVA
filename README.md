@@ -1,5 +1,5 @@
 <p align="center" width="80%">
-<img src="./assets/sunshine.jpg"  width="100%" height="80%">
+<img src="./assets/ms.jpg"  width="100%" height="80%">
 </p>
 
 # NativeRes-LLaVA
