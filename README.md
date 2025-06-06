@@ -1,39 +1,3 @@
-<p align="center" width="80%">
-<img src="./assets/ms.jpg"  width="100%" height="80%">
-</p>
-
-# NativeRes-LLaVA
-Official code repo for our work [**Native Visual Understanding: Resolving Resolution Dilemmas in Vision-Language Models**](https://github.com/Niujunbo2002/NativeRes-LLaVA#)
-
-<div align="center">
-
-  <a href="https://github.com/Niujunbo2002/NativeRes-LLaVA">
-    <img src="https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white">
-  </a>
-  <a href="https://niujunbo2002.github.io/NativeRes-LLaVA/">
-    <img src="https://img.shields.io/badge/Project%20Page-blue?style=for-the-badge&logo=starship&logoColor=white&labelColor=black">
-  </a>
-  <a href="https://github.com/Niujunbo2002/NativeRes-LLaVA">
-    <img src="https://img.shields.io/badge/Code-000000?style=for-the-badge&logo=github&logoColor=white">
-  </a>
-  <a href="https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1#">
-    <img src="https://img.shields.io/badge/Collection-fcd022?style=for-the-badge&logo=huggingface&logoColor=fff">
-  </a>
-
-</div>
-
-## 📰 News
-- [2025/5/22] 🔥🔥🔥 We released NativeRes-LLaVA 1B && 2B && 7B Checkpoints on [Hugging Face](https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1)
-- [2025/5/23] 🔥🔥🔥 We released the paper on [arXiv](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
-
-## 📌 ToDo Lists
-- [x] Release Inference Code
-- [x] Release NativeRes-LLaVA 1B && 2B && 7B Checkpoints
-- [x] Release NativeRes-ViT (qwen2-vl-665m-patch14-native)
-- [ ] Release Training Code (The code is being organized.)
-- [ ] Release RC-Bench (The code is being organized.)
-- [ ] Support RL for post-train
-- [ ] Support Multimodal Reasoning like O3
 
 ## Install
 
@@ -57,6 +21,7 @@ pip install torchaudio==2.6.0
 pip install torchvision==0.21.0
 pip install -r requirements.txt
 pip install transformers==4.50.3
+pip install qwen-vl-utils[decord]
 ```
 
 Install the required environment in `requirements.txt`. The Transforms version should be able to support at least `Qwen2-VL model`.
@@ -98,6 +63,10 @@ For Inference, we have a simple example, just run:
 ```
 python ./infer_demo.py
 ```
+
+Prompt:
+”Document Parsing: “ BBox+OCR, Use this prompt please set max-token = 3096
+“OCR: ” Pure OCR
 
 
 ### Notes
