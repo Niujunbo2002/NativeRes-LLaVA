@@ -1,5 +1,5 @@
 import sys
-sys.path.append("/mnt/petrelfs/niujunbo/NativeRes-LLaVA")
+sys.path.append("/mnt/petrelfs/niujunbo/niujunbo_dev/NativeRes-LLaVA")
 import argparse
 import torch
 import warnings
@@ -23,14 +23,15 @@ from PIL import Image
 from io import BytesIO
 import re
 
-# Define constants
-IGNORE_INDEX = -100
-IMAGE_TOKEN_INDEX = -200
-DEFAULT_IMAGE_TOKEN = "<image>"
-DEFAULT_IMAGE_PATCH_TOKEN = "<im_patch>"
-DEFAULT_IM_START_TOKEN = "<im_start>"
-DEFAULT_IM_END_TOKEN = "<im_end>"
-IMAGE_PLACEHOLDER = "<image-placeholder>"
+from llava.constants import IGNORE_INDEX, IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IMAGE_PATCH_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN, IMAGE_PLACEHOLDER
+# # Define constants
+# IGNORE_INDEX = -100
+# IMAGE_TOKEN_INDEX = -200
+# DEFAULT_IMAGE_TOKEN = "<image>"
+# DEFAULT_IMAGE_PATCH_TOKEN = "<im_patch>"
+# DEFAULT_IM_START_TOKEN = "<im_start>"
+# DEFAULT_IM_END_TOKEN = "<im_end>"
+# IMAGE_PLACEHOLDER = "<image-placeholder>"
 # ANSI escape sequences for colored output
 RED = '\033[91m'
 GREEN = '\033[92m'
@@ -146,10 +147,10 @@ if __name__ == "__main__":
     os.environ["CUDA_VISIBLE_DEVICES"] = "1" 
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model-path", type=str, default="/mnt/petrelfs/niujunbo/NativeRes/model/Niujunbo2002/NativeRes-LLaVA-qwen2-7b-qwen2vl")
+    parser.add_argument("--model-path", type=str, default="/mnt/petrelfs/niujunbo/NativeRes-LLaVA/playground/NativeRes-LLaVA-qwen2-0.5b-qwen2vit-Exp-4-7290")
     parser.add_argument("--model-base", type=str, default=None)
-    parser.add_argument("--image-file", type=str, default="demo/paper2.jpg")
-    parser.add_argument("--query", type=str, default="Describe the image in detail." )
+    parser.add_argument("--image-file", type=str, default="/mnt/petrelfs/niujunbo/niujunbo_dev/NativeRes-LLaVA/demo/demo1.jpg")
+    parser.add_argument("--query", type=str, default="Document Parsing: " )
     parser.add_argument("--conv-mode", type=str, default="qwen_1_5")
     parser.add_argument("--sep", type=str, default=",")
     parser.add_argument("--temperature", type=float, default=0.0)
