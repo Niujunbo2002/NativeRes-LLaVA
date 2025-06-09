@@ -36,6 +36,7 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 - [ ] Support RL for post-train
 - [ ] Support Multimodal Reasoning like O3
 
+## Comparisons of openness and capabilities across different VLMs.
 | Models | Nativeres-Training Codebase | Sequence Packing Scripts | Pre-Training Codebase | Base Model Checkpoint | SFT-Training Codebase | Instruct Model Checkpoint | Flexibly Changing Modules | Resolution Strategy |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
 | LLaVA | ⬜️ None | ⬜️ None | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | Fixed |
