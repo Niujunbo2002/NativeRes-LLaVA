@@ -36,6 +36,18 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 - [ ] Support RL for post-train
 - [ ] Support Multimodal Reasoning like O3
 
+| Models | Nativeres-Training Codebase | Sequence Packing Scripts | Pre-Training Codebase | Base Model Checkpoint | SFT-Training Codebase | Instruct Model Checkpoint | Flexibly Changing Modules | Resolution Strategy |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| LLaVA | ⬜️ None | ⬜️ None | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | Fixed |
+| Cambrian-1 | ⬜️ None | ⬜️ None | 🟥 Closed | 🟩 Open | 🟥 Closed | 🟩 Open | 🟩 Open | Hybrid |
+| LLaVA-OneVision | ⬜️ None | ⬜️ None | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | Crop |
+| Seed1.5-VL | 🟥 Closed | 🟥 Closed | 🟥 Closed | 🟥 Closed | 🟥 Closed | 🟥 Closed | 🟥 Closed | Native |
+| Kimi-VL | 🟥 Closed | 🟥 Closed | 🟥 Closed | 🟥 Closed | 🟩 Open | 🟩 Open | 🟥 Closed | Native |
+| Qwen2-VL | 🟥 Closed | 🟥 Closed | 🟥 Closed | 🟩 Open | 🟩 Open | 🟩 Open | 🟥 Closed | Native |
+| NativeRes-LLaVA | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | Native |
+
+  * **Emoji:** 🟩 = Open-Source, 🟥 = Closed-Source, ⬜️ = None
+
 ## Install
 
 This is a repo enabling you train a LLaVA using images with native resolution.
