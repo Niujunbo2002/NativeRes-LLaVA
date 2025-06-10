@@ -179,6 +179,39 @@
 </div>
 <!-- Youtube video -->
 
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3"> Dataset Examples </h2>
+  </div>
+</section>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <img src="static/pdfs/DEMO_00.png" alt="demo" />
+        </div>
+        <div class="item">
+          <img src="static/pdfs/DEMO_01.png" alt="demo" />
+        </div>
+        <div class="item">
+          <img src="static/pdfs/DEMO_02.png" alt="demo" />
+        </div>
+        <div class="item">
+          <img src="static/pdfs/DEMO_03.png" alt="demo" />
+        </div>
+        <div class="item">
+          <img src="static/pdfs/DEMO_04.png" alt="demo" />
+        </div>
+        <div class="item">
+          <img src="static/pdfs/DEMO_05.png" alt="demo" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 
 <!--BibTex citation -->
@@ -217,3 +250,33 @@
 
   </body>
   </html>
+
+  
+<style>
+  .results-carousel {
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .results-carousel .item {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .results-carousel .item:first-child {
+    height: 800px;
+  }
+  
+  .results-carousel .item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+  }
+</style>
+  
