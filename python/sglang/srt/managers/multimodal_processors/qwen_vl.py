@@ -16,11 +16,12 @@ from sglang.srt.managers.multimodal_processors.base_processor import (
 from sglang.srt.managers.schedule_batch import Modality, MultimodalDataItem
 from sglang.srt.models.qwen2_5_vl import Qwen2_5_VLForConditionalGeneration
 from sglang.srt.models.qwen2_vl import Qwen2VLForConditionalGeneration
+from sglang.srt.models.native import NativeQwen2VLForConditionalGeneration
 
 
 # Compatible with Qwen2VL and Qwen2_5VL
 class Qwen2_5VLImageProcessor(SGLangBaseProcessor):
-    models = [Qwen2VLForConditionalGeneration, Qwen2_5_VLForConditionalGeneration]
+    models = [Qwen2VLForConditionalGeneration, Qwen2_5_VLForConditionalGeneration, NativeQwen2VLForConditionalGeneration]
 
     def __init__(self, hf_config, server_args, _processor):
         super().__init__(hf_config, server_args, _processor)
@@ -39,7 +40,7 @@ class Qwen2_5VLImageProcessor(SGLangBaseProcessor):
         self.NUM_TOKEN_PER_FRAME = 770
         self.IMAGE_FACTOR = 28
         self.MIN_PIXELS = 4 * 28 * 28
-        self.MAX_PIXELS = 16384 * 28 * 28
+        self.MAX_PIXELS = 7290 * 28 * 28
         self.MAX_RATIO = 200
 
     async def process_mm_data_async(
@@ -133,6 +134,7 @@ class Qwen2_5VLImageProcessor(SGLangBaseProcessor):
         video_grid_thw = None  # TODO
 
         combined_mm_item, input_ids = self.process_and_combine_mm_data(base_output)
+        # print(f'{input_ids.shape=}   {len(base_output.images)=}')
 
         if combined_mm_item is None:
             # Note(Xinyuan): This is the case where image loading fails.
