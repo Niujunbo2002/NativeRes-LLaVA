@@ -34,8 +34,9 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 - [ ] Support qwen2.5-vl-ViT(Window Attention🌟)
 - [ ] Release Training Code (The code is being organized.)
 - [ ] Release RC-Bench (The code is being organized.)
-- [ ] Support RL for post-train
-- [ ] Support Multimodal Reasoning like O3
+- [ ] Release SOTA NativeRes-LLaVA Checkpoints and Training Recipe
+<!-- - [ ] Support RL for post-train
+- [ ] Support Multimodal Reasoning like O3 -->
 
 ## Comparisons of openness and capabilities across different VLMs.
 | Models | Nativeres-Training Codebase | Sequence Packing Scripts | Pre-Training Codebase | Base Model Checkpoint | SFT-Training Codebase | Instruct Model Checkpoint | Flexibly Changing Modules | Resolution Strategy |
@@ -49,6 +50,13 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 | NativeRes-LLaVA | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | 🟩 Open | Native |
 
   * **Emoji:** 🟩 = Open-Source, 🟥 = Closed-Source, ⬜️ = None
+
+## Architecture of NativeRes-LLaVA.
+<p align="center" width="80%">
+<img src="./assets/model_arch.png"  width="100%" height="80%">
+</p>
+
+
 
 ## Install
 
@@ -73,6 +81,8 @@ pip install torchvision==0.21.0
 pip install -r requirements.txt
 pip install transformers==4.50.3
 ```
+❗️If you get stuck during the installation of `Flash-attn`, we recommend manually downloading the appropriate version from the official source.
+
 
 Install the required environment in `requirements.txt`. The Transforms version should be able to support at least `Qwen2-VL model`.
 
