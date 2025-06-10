@@ -65,7 +65,8 @@ python ./infer_demo.py
 ```
 
 Prompt:
-”Document Parsing: “ BBox+OCR, Use this prompt please set max-token = 3096
+”Document Parsing: “ BBox+OCR, Use this prompt please set `--min_image_tokens = 4`  and `--min_image_tokens = 3516`
+
 “OCR: ” Pure OCR
 
 
