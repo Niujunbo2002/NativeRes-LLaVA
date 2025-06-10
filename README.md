@@ -30,7 +30,7 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 - [x] Release Inference Code
 - [x] Release NativeRes-LLaVA 1B && 2B && 7B Checkpoints
 - [x] Release NativeRes-ViT (qwen2-vl-665m-patch14-native)
-- [x] Support SGLang
+- [x] Support SGLang 🚀🚀🚀
 - [ ] Support qwen2.5-vl-ViT(Window Attention🌟)
 - [ ] Release Training Code (The code is being organized.)
 - [ ] Release RC-Bench (The code is being organized.)
