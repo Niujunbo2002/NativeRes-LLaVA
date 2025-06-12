@@ -135,7 +135,7 @@ If you want to run using siglip ViT, which not support NativeRes, you can run:
 bash scripts/train/pretrain_siglip.sh
 ```
 
-Otherwise you can run in NativeRes mode which utilize Qwen2-VL ViT to support any resolution:
+Otherwise you can run in NativeRes mode which utilize Qwen2-VL ViT to support native resolution:
 
 ```
 bash scripts/train/pretrain_qwenvit.sh
@@ -168,7 +168,7 @@ Junbo Niu: 21376334@buaa.edu.cn
 
 
 ## Acknowledgements
-This codebase is built upon [LLaVA](https://github.com/haotian-liu/LLaVA) and leverages  open-source model [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) . We extend our gratitude to the contributors and maintainers of these projects.
+This codebase is built upon [LLaVA](https://github.com/haotian-liu/LLaVA) and leverages open-source model [Qwen2-VL-2B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) . We extend our gratitude to the contributors and maintainers of these projects.
 
 
 ## Citation
