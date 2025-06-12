@@ -23,8 +23,8 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 </div>
 
 ## 📰 News
-- [2025/5/22] 🔥🔥🔥 We released NativeRes-LLaVA 1B && 2B && 7B Checkpoints on [Hugging Face](https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1)
-- [2025/5/23] 🔥🔥🔥 We released the paper on [arXiv](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
+- [2025/5/22] 🔥🔥🔥 We released NativeRes-LLaVA(with Qwen2-ViT) 1B && 2B && 7B Checkpoints on [Hugging Face](https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1)
+- [2025/6/13] 🔥🔥🔥 We released the paper on [arXiv](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
 
 ## 📌 ToDo Lists
 - [x] Release Inference Code
