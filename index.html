@@ -145,25 +145,33 @@
 
 
 <!-- Paper abstract -->
-<section class="section hero is-light">
+<section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Vision-Language Models (VLMs) face significant challenges when dealing with the diverse resolutions and aspect ratios of real-world images, as most existing models rely on fixed, low-resolution inputs. While recent studies have explored integrating native resolution encoding to improve model performance, such efforts remain fragmented and lack a systematic framework within the open-source community. Moreover, existing benchmarks fall short in evaluating VLMs under varied visual conditions, often neglecting resolution as a critical factor. To address the "Resolution Dilemma" stemming from both model design and benchmark limitations, we introduce RC-Bench, a novel benchmark specifically designed to systematically evaluate VLM capabilities under extreme visual conditions, with an emphasis on resolution and aspect ratio variations. In conjunction, we propose NativeRes-LLAVA, an open-source training framework that empowers VLMs to effectively process images at their native resolutions and aspect ratios. Based on RC-Bench and NativeRes-LLAVA, we conduct comprehensive experiments on existing visual encoding strategies. The results show that Native Resolution Encoding significantly improves the performance of VLMs on RC-Bench as well as other resolution-centric benchmarks.
-          </p>
-        </div>
       </div>
     </div>
   </div>
 </section>
+
+
+<div class="container is-max-desktop">
+    <div class="columns is-centered has-text-left">
+      <div class="column is-four-fifths">
+        <p>
+          Vision-Language Models (VLMs) face significant challenges when dealing with the diverse resolutions and aspect ratios of real-world images, as most existing models rely on fixed, low-resolution inputs. While recent studies have explored integrating native resolution visual encoding to improve model performance, such efforts remain fragmented and lack a systematic framework within the open-source community. Moreover, existing benchmarks fall short in evaluating VLMs under varied visual conditions, often neglecting resolution as a critical factor. To address the "Resolution Dilemma" stemming from both model design and benchmark limitations, we introduce RC-Bench, a novel benchmark specifically designed to systematically evaluate VLM capabilities under extreme visual conditions, with an emphasis on resolution and aspect ratio variations. In conjunction, we propose NativeRes-LLaVA, an open-source training framework that empowers VLMs to effectively process images at their native resolutions and aspect ratios. Based on RC-Bench and NativeRes-LLaVA, we conduct comprehensive experiments on existing visual encoding strategies. The results show that Native Resolution Visual Encoding significantly improves the performance of VLMs on RC-Bench as well as other resolution-centric benchmarks.
+        </p>      
+      </div>
+    </div>
+</div>
+
+
 <!-- End paper abstract -->
 <br>
 
 <!-- Architecture here -->
-<section class="section hero is-light">
+<section class="section hero">
   <div class="container is-max-desktop">
     <h2 class="title is-3" style="text-align: center">Architecture</h2> 
   </div>
@@ -174,7 +182,7 @@
 
 
 <!-- Leaderboard here -->
-<section class="section hero is-light">
+<section class="section hero">
   <div class="container is-max-desktop">
     <h2 class="title is-3" style="text-align: center">Results</h2>
   </div>
@@ -304,7 +312,7 @@
               </thead>
               <tbody>
                 <tr style="border-bottom: 1px solid lightgray;">
-                  <td style="text-align: left; padding: 8px;">Cambrain-1 [44]</td>
+                  <td style="text-align: left; padding: 8px;">Cambrain-1</td>
                   <td style="text-align: left; padding: 8px;">LLaMA3-8B-Instruct</td>
                   <td style="text-align: center; padding: 8px;">9.5M</td>
                   <td style="text-align: center; padding: 8px;">Hybrid</td>
@@ -313,7 +321,7 @@
                   <td style="text-align: center; padding: 8px;">30.1</td>
                 </tr>
                 <tr>
-                  <td style="text-align: left; padding: 8px;">LLaVA-OneVision [18]</td>
+                  <td style="text-align: left; padding: 8px;">LLaVA-OneVision</td>
                   <td style="text-align: left; padding: 8px;">Qwen2-7B-Instruct</td>
                   <td style="text-align: center; padding: 8px;">9.35M</td>
                   <td rowspan="4" style="text-align: center; vertical-align: middle; padding: 8px;">Crop</td>
@@ -322,23 +330,23 @@
                   <td style="text-align: center; padding: 8px;">11.4</td>
                 </tr>
                 <tr>
-                  <td style="text-align: left; padding: 8px;">Intern-VL-2.5 [4]</td>
-                  <td style="text-align: left; padding: 8px;">InternLM2.5-7B</td>
+                  <td style="text-align: left; padding: 8px;">Intern-VL-2.5</td>
+                  <td style="text-align: left; padding: 8px;">InternLM2.5-7B-chat</td>
                   <td style="text-align: center; padding: 8px;">142B<sup>Tok</sup></td>
                   <td style="text-align: center; padding: 8px;">65.0</td>
                   <td style="text-align: center; padding: 8px;">9.7</td>
                   <td style="text-align: center; padding: 8px;">5.7</td>
                 </tr>
                 <tr>
-                  <td style="text-align: left; padding: 8px;">Intern-VL-3 [61]</td>
-                  <td style="text-align: left; padding: 8px;">Qwen2.5-7B-Instruct</td>
+                  <td style="text-align: left; padding: 8px;">Intern-VL-3</td>
+                  <td style="text-align: left; padding: 8px;">Qwen2.5-7B</td>
                   <td style="text-align: center; padding: 8px;">200B<sup>Tok</sup></td>
                   <td style="text-align: center; padding: 8px;">60.4</td>
                   <td style="text-align: center; padding: 8px;">28.3</td>
                   <td style="text-align: center; padding: 8px;">5.9</td>
                 </tr>
                 <tr style="border-bottom: 1px solid lightgray;">
-                  <td style="text-align: left; padding: 8px;">DeepSeek-VL2 [49]</td>
+                  <td style="text-align: left; padding: 8px;">DeepSeek-VL2</td>
                   <td style="text-align: left; padding: 8px;">28B-A4B</td>
                   <td style="text-align: center; padding: 8px;">800B<sup>Tok</sup></td>
                   <td style="text-align: center; padding: 8px;">65.3</td>
@@ -355,7 +363,7 @@
                   <td style="text-align: center; padding: 8px;">7.2</td>
                 </tr>
                 <tr>
-                  <td style="text-align: left; padding: 8px;">Qwen2-VL [46]</td>
+                  <td style="text-align: left; padding: 8px;">Qwen2-VL</td>
                   <td style="text-align: left; padding: 8px;">Qwen2-7B-Instruct</td>
                   <td style="text-align: center; padding: 8px;">1.4T<sup>Tok</sup></td>
                   <td style="text-align: center; padding: 8px;">77.6</td>
@@ -363,7 +371,7 @@
                   <td style="text-align: center; padding: 8px;"><strong>2.0</strong></td>
                 </tr>
                 <tr>
-                  <td style="text-align: left; padding: 8px;">Qwen2.5-VL [2]</td>
+                  <td style="text-align: left; padding: 8px;">Qwen2.5-VL</td>
                   <td style="text-align: left; padding: 8px;">Qwen2.5-7B-Instruct</td>
                   <td style="text-align: center; padding: 8px;">4.1T<sup>Tok</sup></td>
                   <td style="text-align: center; padding: 8px;"><strong>80.4</strong></td>
@@ -371,7 +379,7 @@
                   <td style="text-align: center; padding: 8px;">2.1</td>
                 </tr>
                 <tr>
-                  <td style="text-align: left; padding: 8px;">Kimi-VL [43]</td>
+                  <td style="text-align: left; padding: 8px;">Kimi-VL</td>
                   <td style="text-align: left; padding: 8px;">16B-A3B</td>
                   <td style="text-align: center; padding: 8px;">4.4T<sup>Tok</sup></td>
                   <td style="text-align: center; padding: 8px;">72.4</td>
@@ -379,7 +387,7 @@
                   <td style="text-align: center; padding: 8px;">2.1</td>
                 </tr>
                 <tr>
-                  <td style="text-align: left; padding: 8px;">Seed1.5-VL [12]</td>
+                  <td style="text-align: left; padding: 8px;">Seed1.5-VL</td>
                   <td style="text-align: left; padding: 8px;">A20B</td>
                   <td style="text-align: center; padding: 8px;">3T<sup>+Tok</sup></td>
                   <td style="text-align: center; padding: 8px;">75.1</td>
