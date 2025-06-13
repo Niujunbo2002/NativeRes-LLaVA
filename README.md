@@ -164,7 +164,7 @@ bash scripts/train/direct_finetune_qwen_a4_v1.5_4_2048.sh
 
 
 ## Contact
-Junbo Niu: 21376334@buaa.edu.cn
+Junbo Niu: 21376334@buaa.edu.cn, Yuanhong Zheng: zyh0918@mail.sdu.edu.cn
 
 
 ## Acknowledgements
