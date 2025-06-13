@@ -17,11 +17,12 @@ from sglang.srt.managers.schedule_batch import Modality, MultimodalDataItem
 from sglang.srt.models.qwen2_5_vl import Qwen2_5_VLForConditionalGeneration
 from sglang.srt.models.qwen2_vl import Qwen2VLForConditionalGeneration
 from sglang.srt.models.native import NativeQwen2VLForConditionalGeneration
-
+from sglang.srt.models.native_2_5 import NativeQwen2_5_VLForConditionalGeneration
 
 # Compatible with Qwen2VL and Qwen2_5VL
 class Qwen2_5VLImageProcessor(SGLangBaseProcessor):
-    models = [Qwen2VLForConditionalGeneration, Qwen2_5_VLForConditionalGeneration, NativeQwen2VLForConditionalGeneration]
+    models = [Qwen2VLForConditionalGeneration, Qwen2_5_VLForConditionalGeneration,
+              NativeQwen2VLForConditionalGeneration, NativeQwen2_5_VLForConditionalGeneration]
 
     def __init__(self, hf_config, server_args, _processor):
         super().__init__(hf_config, server_args, _processor)
@@ -134,7 +135,6 @@ class Qwen2_5VLImageProcessor(SGLangBaseProcessor):
         video_grid_thw = None  # TODO
 
         combined_mm_item, input_ids = self.process_and_combine_mm_data(base_output)
-        # print(f'{input_ids.shape=}   {len(base_output.images)=}')
 
         if combined_mm_item is None:
             # Note(Xinyuan): This is the case where image loading fails.
