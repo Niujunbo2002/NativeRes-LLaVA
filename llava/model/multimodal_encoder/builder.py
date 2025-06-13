@@ -18,10 +18,8 @@ def build_vision_tower(vision_tower_cfg, **kwargs):
     elif "siglip" in vision_tower:
         return SigLipVisionTower(vision_tower, vision_tower_cfg=vision_tower_cfg, **kwargs)
     elif "qwen2_5" in vision_tower.split('/')[-1].lower():
-        print("qwen2_5")
         return Qwen2_5_VisionTransformerPretrainedModelForLLaVA(vision_tower,args=vision_tower_cfg)
     elif "qwen2" in vision_tower.split('/')[-1].lower():
-        print("qwen2")
         return Qwen2VisionTransformerPretrainedModelForLLaVA(vision_tower,args=vision_tower_cfg)
 
     raise ValueError(f"Unknown vision tower: {vision_tower}")
