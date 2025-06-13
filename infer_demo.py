@@ -1,5 +1,5 @@
 import sys
-sys.path.append("/mnt/petrelfs/niujunbo/NativeRes-LLaVA")
+sys.path.append("/mnt/petrelfs/niujunbo/niujunbo_dev/github/NativeRes-LLaVA")
 import argparse
 import torch
 import warnings
@@ -146,7 +146,7 @@ if __name__ == "__main__":
     os.environ["CUDA_VISIBLE_DEVICES"] = "1" 
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model-path", type=str, default="/mnt/petrelfs/niujunbo/NativeRes/model/Niujunbo2002/NativeRes-LLaVA-qwen2-7b-qwen2vl")
+    parser.add_argument("--model-path", type=str, default="/mnt/petrelfs/niujunbo/niujunbo_dev/ocr_ckpts/nativeres-llava-Qwen2-0.5B-Instruct-qwenvit_2_5-ft-v2")
     parser.add_argument("--model-base", type=str, default=None)
     parser.add_argument("--image-file", type=str, default="demo/paper2.jpg")
     parser.add_argument("--query", type=str, default="Describe the image in detail." )
