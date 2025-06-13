@@ -1,14 +1,18 @@
 import sys
-sys.path.append("/mnt/petrelfs/niujunbo/niujunbo_dev/github/NativeRes-LLaVA")
 import argparse
-import torch
 import warnings
-warnings.filterwarnings("ignore")
-from transformers import logging
-logging.set_verbosity_warning()
-from transformers import logging
-logging.set_verbosity_error()
+import re
+from io import BytesIO
 
+import torch
+from PIL import Image
+import requests
+from transformers import logging
+
+# Append local path
+sys.path.append("/mnt/petrelfs/niujunbo/niujunbo_dev/github/NativeRes-LLaVA")
+
+# Local imports
 from llava.conversation import conv_templates, SeparatorStyle
 from llava.model.builder import load_pretrained_model
 from llava.utils import disable_torch_init
@@ -17,21 +21,21 @@ from llava.mm_utils import (
     tokenizer_image_token,
     get_model_name_from_path,
 )
-from PIL import Image
-import requests
-from PIL import Image
-from io import BytesIO
-import re
+from llava.constants import (
+    IGNORE_INDEX,
+    IMAGE_TOKEN_INDEX,
+    DEFAULT_IMAGE_TOKEN,
+    DEFAULT_IMAGE_PATCH_TOKEN,
+    DEFAULT_IM_START_TOKEN,
+    DEFAULT_IM_END_TOKEN,
+    IMAGE_PLACEHOLDER,
+)
 
-# Define constants
-IGNORE_INDEX = -100
-IMAGE_TOKEN_INDEX = -200
-DEFAULT_IMAGE_TOKEN = "<image>"
-DEFAULT_IMAGE_PATCH_TOKEN = "<im_patch>"
-DEFAULT_IM_START_TOKEN = "<im_start>"
-DEFAULT_IM_END_TOKEN = "<im_end>"
-IMAGE_PLACEHOLDER = "<image-placeholder>"
-# ANSI escape sequences for colored output
+# Suppress warnings
+warnings.filterwarnings("ignore")
+logging.set_verbosity_error()
+
+# ANSI terminal colors
 RED = '\033[91m'
 GREEN = '\033[92m'
 BLUE = '\033[94m'
@@ -39,93 +43,84 @@ RESET = '\033[0m'
 
 
 def image_parser(args):
-    out = args.image_file.split(args.sep)
-    return out
+    return args.image_file.split(args.sep)
 
 
 def load_image(image_file):
-    if image_file.startswith("http") or image_file.startswith("https"):
+    """Load image from local path or URL"""
+    if image_file.startswith("http"):
         response = requests.get(image_file)
-        image = Image.open(BytesIO(response.content)).convert("RGB")
-    else:
-        image = Image.open(image_file).convert("RGB")
-    return image
+        return Image.open(BytesIO(response.content)).convert("RGB")
+    return Image.open(image_file).convert("RGB")
 
 
-def load_images(image_files,packing):
+def load_images(image_files, packing):
+    """Conditionally load and process images"""
     if packing:
         return image_files
-    out = []
-    for image_file in image_files:
-        image = load_image(image_file)
-        out.append(image)
-    return out
+    return [load_image(f) for f in image_files]
 
 
 def eval_model(args):
-    packing=False
-    if 'qwen' in args.model_path.lower():
-        packing=True
-    disable_torch_init()
+    packing = 'qwen' in args.model_path.lower()
 
+    disable_torch_init()
     model_name = get_model_name_from_path(args.model_path)
 
     tokenizer, model, image_processor, context_len = load_pretrained_model(
         args.model_path,
-        None, 
+        None,
         model_name,
         min_image_tokens=args.min_image_tokens,
         max_image_tokens=args.max_image_tokens,
     )
 
+    # Load image(s)
     image_files = image_parser(args)
-    images = load_images(image_files,packing)
-    image_sizes = [x.size for x in images] if not packing else None
+    images = load_images(image_files, packing)
+    image_sizes = [img.size for img in images] if not packing else None
+
+    # Preprocess images
     images_tensor, grid_thw = process_images(
-        images,
-        image_processor,
-        model.config,
-        packing,
+        images, image_processor, model.config, packing
     )
-    images_tensor=images_tensor.to(model.device, dtype=torch.float16)
-    grid_thw=grid_thw.to(model.device) if grid_thw is not None else None
+    images_tensor = images_tensor.to(model.device, dtype=torch.float16)
+    grid_thw = grid_thw.to(model.device) if grid_thw is not None else None
 
-    qs = args.query
-    qs=qs.replace("\\n", "\n")
+    # Prepare prompt
+    qs = args.query.replace("\\n", "\n")
     image_token_se = DEFAULT_IM_START_TOKEN + DEFAULT_IMAGE_TOKEN + DEFAULT_IM_END_TOKEN
-    if IMAGE_PLACEHOLDER in qs:
-        if model.config.mm_use_im_start_end:
-            qs = re.sub(IMAGE_PLACEHOLDER, image_token_se, qs)
-        else:
-            qs = re.sub(IMAGE_PLACEHOLDER, DEFAULT_IMAGE_TOKEN, qs)
-    else:
-        if model.config.mm_use_im_start_end:
-            qs = image_token_se + "\n" + qs
-        else:
-            # qs = DEFAULT_IMAGE_TOKEN + "\n" + qs # <image>\nWhat are the things I should be cautious about when I visit here?
-            num_images = len(image_files)
-            qs = (DEFAULT_IMAGE_TOKEN + "\n") * num_images + qs
 
-    conv_mode=args.conv_mode
-    print(f"{GREEN}conv_mode: {conv_mode}\n{RESET}")
-    conv = conv_templates[conv_mode].copy()
+    if IMAGE_PLACEHOLDER in qs:
+        qs = re.sub(
+            IMAGE_PLACEHOLDER,
+            image_token_se if model.config.mm_use_im_start_end else DEFAULT_IMAGE_TOKEN,
+            qs
+        )
+    else:
+        prefix = image_token_se if model.config.mm_use_im_start_end else DEFAULT_IMAGE_TOKEN
+        qs = (prefix + "\n") * len(image_files) + qs
+
+    # Build conversation
+    print(f"{GREEN}conv_mode: {args.conv_mode}\n{RESET}")
+    conv = conv_templates[args.conv_mode].copy()
     conv.append_message(conv.roles[0], qs)
     conv.append_message(conv.roles[1], None)
     prompt = conv.get_prompt()
 
-
+    # Tokenize input
     input_ids = (
         tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors="pt")
         .unsqueeze(0)
         .cuda()
     )
 
+    # Run model inference
     with torch.inference_mode():
         output_ids = model.generate(
             input_ids,
             images=images_tensor,
             image_sizes=image_sizes,
-            # do_sample=True if args.temperature > 0 else False,#true
             do_sample=False,
             temperature=args.temperature,
             top_p=args.top_p,
@@ -135,21 +130,18 @@ def eval_model(args):
             packing=packing,
             grid_thw=grid_thw,
         )
-    outputs = tokenizer.batch_decode(output_ids, skip_special_tokens=True)[0].strip()
 
-    print(f"{GREEN}The output is :{RESET}")
+    outputs = tokenizer.batch_decode(output_ids, skip_special_tokens=True)[0].strip()
+    print(f"{GREEN}The output is:{RESET}")
     print(f"{BLUE}{outputs}{RESET}")
 
 
 if __name__ == "__main__":
-    import os
-    os.environ["CUDA_VISIBLE_DEVICES"] = "1" 
-
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model-path", type=str, default="/mnt/petrelfs/niujunbo/niujunbo_dev/ocr_ckpts/nativeres-llava-Qwen2-0.5B-Instruct-qwenvit_2_5-ft-v2")
+    parser.add_argument("--model-path", type=str, default="/mnt/petrelfs/niujunbo/niujunbo_dev/ocr_ckpts/nativeres-llava-Qwen2-1.5B-Instruct-qwenvit_2_5-ft-v2")
     parser.add_argument("--model-base", type=str, default=None)
     parser.add_argument("--image-file", type=str, default="demo/paper2.jpg")
-    parser.add_argument("--query", type=str, default="Describe the image in detail." )
+    parser.add_argument("--query", type=str, default="Describe the image in detail.")
     parser.add_argument("--conv-mode", type=str, default="qwen_1_5")
     parser.add_argument("--sep", type=str, default=",")
     parser.add_argument("--temperature", type=float, default=0.0)
@@ -158,6 +150,6 @@ if __name__ == "__main__":
     parser.add_argument("--min_image_tokens", type=int, default=4)
     parser.add_argument("--max_image_tokens", type=int, default=4096)
     parser.add_argument("--max_new_tokens", type=int, default=512)
-    args = parser.parse_args()
 
+    args = parser.parse_args()
     eval_model(args)
