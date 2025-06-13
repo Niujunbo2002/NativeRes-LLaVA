@@ -17,7 +17,7 @@ from sglang.srt.managers.schedule_batch import Modality, MultimodalDataItem
 from sglang.srt.models.qwen2_5_vl import Qwen2_5_VLForConditionalGeneration
 from sglang.srt.models.qwen2_vl import Qwen2VLForConditionalGeneration
 from sglang.srt.models.native import NativeQwen2VLForConditionalGeneration
-from sglang.srt.models.native_2_5 import NativeQwen2_5_VLForConditionalGeneration
+from sglang.srt.models.native2_5 import NativeQwen2_5_VLForConditionalGeneration
 
 # Compatible with Qwen2VL and Qwen2_5VL
 class Qwen2_5VLImageProcessor(SGLangBaseProcessor):
