@@ -239,7 +239,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                             model=model.to(device)
                             model.get_model().get_vision_tower().reset_image_processor(min_image_tokens, max_image_tokens)
                             image_processor = model.get_model().get_vision_tower().image_processor
-                            
+                            model = model.to(torch.bfloat16)   # 改为 bfloat16
                             # print(model.get_model().get_vision_tower().image_processor)
                             # print(f"======================")
                             # print(f"{dir(image_processor)}")
