@@ -2,7 +2,7 @@
 <img src="./assets/ms.jpg"  width="100%" height="80%">
 </p>
 
-# NativeRes-LLaVA
+# 🌈NativeRes-LLaVA
 Official code repo for our work [**Native Visual Understanding: Resolving Resolution Dilemmas in Vision-Language Models**](https://github.com/Niujunbo2002/NativeRes-LLaVA#)
 
 <div align="center">
@@ -35,7 +35,8 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 - [x] Release ✨ NativeRes-LLaVA 1B && 2B && 7B Checkpoints (with Qwen2.5-ViT) More Faster!
 - [ ] Release Training Code (The code is being organized.)
 - [ ] Release RC-Bench (The code is being organized.)
-- [ ] Release SOTA NativeRes-LLaVA Checkpoints and Training Recipe
+- [ ] Support LLaMA Factory && VeRL
+- [ ] Release SOTA NativeRes-LLaVA Checkpoints and Training Recipe (Data is being collected⛽️)
 <!-- - [ ] Support RL for post-train
 - [ ] Support Multimodal Reasoning like O3 -->
 
