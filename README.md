@@ -32,7 +32,7 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 - [x] Release NativeRes-ViT ([Niujunbo2002/qwen2vit-665m-patch14-native](https://huggingface.co/Niujunbo2002/qwen2vit-665m-patch14-native))
 - [x] Support SGLang 🚀🚀🚀
 - [x] Release NativeRes-ViT ([Niujunbo2002/qwen2_5_vit-668m-patch14-native](https://huggingface.co/Niujunbo2002/qwen2_5_vit-668m-patch14-native))(Window Attention🌟)
-- [ ] Release ✨ NativeRes-LLaVA 1B && 2B && 7B Checkpoints (with Qwen2.5-ViT) More Faster!
+- [x] Release ✨ NativeRes-LLaVA 1B && 2B && 7B Checkpoints (with Qwen2.5-ViT) More Faster!
 - [ ] Release Training Code (The code is being organized.)
 - [ ] Release RC-Bench (The code is being organized.)
 - [ ] Release SOTA NativeRes-LLaVA Checkpoints and Training Recipe
