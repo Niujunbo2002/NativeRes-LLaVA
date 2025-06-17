@@ -7,7 +7,7 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 
 <div align="center">
 
-  <a href="https://github.com/Niujunbo2002/NativeRes-LLaVA">
+  <a href="https://arxiv.org/pdf/2506.12776">
     <img src="https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white">
   </a>
   <a href="https://niujunbo2002.github.io/NativeRes-LLaVA/">
@@ -24,7 +24,7 @@ Official code repo for our work [**Native Visual Understanding: Resolving Resolu
 
 ## 📰 News
 - [2025/5/22] 🔥🔥🔥 We released NativeRes-LLaVA(with Qwen2-ViT) 1B && 2B && 7B Checkpoints on [Hugging Face](https://huggingface.co/collections/Niujunbo2002/nativeres-llava-682d6f2f94ed89a9b2b71cb1)
-- [2025/6/13] 🔥🔥🔥 We released the paper on [arXiv](https://github.com/Niujunbo2002/NativeRes-LLaVA#)!
+- [2025/6/13] 🔥🔥🔥 We released the paper on [arXiv](https://arxiv.org/pdf/2506.12776)!
 
 ## 📌 ToDo Lists
 - [x] Release Inference Code
@@ -176,5 +176,13 @@ This codebase is built upon [LLaVA](https://github.com/haotian-liu/LLaVA) and le
 ## Citation
 If you find our work helpful for your research, please consider giving a star ⭐ and citation 📝.
 ```bibtex
-
+@misc{niu2025nativevisualunderstandingresolving,
+      title={Native Visual Understanding: Resolving Resolution Dilemmas in Vision-Language Models}, 
+      author={Junbo Niu and Yuanhong Zheng and Ziyang Miao and Hejun Dong and Chunjiang Ge and Hao Liang and Ma Lu and Bohan Zeng and Qiahao Zheng and Conghui He and Wentao Zhang},
+      year={2025},
+      eprint={2506.12776},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2506.12776}, 
+}
 ```
